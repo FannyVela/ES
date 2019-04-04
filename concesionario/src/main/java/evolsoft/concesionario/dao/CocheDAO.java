@@ -21,6 +21,10 @@ public interface CocheDAO extends PagingAndSortingRepository<Coche, Integer> {
 	public List<Coche> findByMarcaAndModelo(@Param(value = "marca") String marca,
 			@Param(value = "modelo") String modelo);
 
+	@Query(value = "select c from Coche c where c.precio between :minPrice and :maxPrice")
+	public List<Coche> findCarsBtwPriceRange(@Param("minPrice") double minPrice,
+	@Param("maxPrice") double maxPrice);
+
 	@Query(value = "select c from Coche c order by c.precio asc")
 	public List<Coche> listCarsSortedByPrice();
 
