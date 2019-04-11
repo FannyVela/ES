@@ -115,4 +115,15 @@ cochesInRange.add(cocheDTO);
 return cochesInRange;
 }
 
+@Override
+public List<CocheDTO> findCochesInStock() {
+List<Coche> coches = cocheDAO.findCarsInStock();
+final List<CocheDTO> cochesInStock = new ArrayList<>();
+coches.forEach(coche -> {
+final CocheDTO cocheDTO = map(coche);
+cochesInStock.add(cocheDTO);
+});
+return cochesInStock;
+}
+
 }
