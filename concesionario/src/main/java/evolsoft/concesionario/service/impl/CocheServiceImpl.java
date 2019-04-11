@@ -109,7 +109,7 @@ public List<CocheDTO> findCochesInPriceRange(Integer minPrice, Integer maxPrice)
 List<Coche> coches = cocheDAO.findCarsBtwPriceRange(minPrice, maxPrice);
 final List<CocheDTO> cochesInRange = new ArrayList<>();
 coches.forEach(coche -> {
-final CocheDTO cocheDTO = map(coche);
+final CocheDTO cocheDTO = map(coche); //Añadido ya
 cochesInRange.add(cocheDTO);
 });
 return cochesInRange;
