@@ -97,7 +97,7 @@ public class CocheServiceImpl implements CocheService {
 		List<Coche> coches = cocheDAO.findCarsAlreadySold();
 		final List<CocheDTO> cochesInStock = new ArrayList<>();
 		coches.forEach(coche -> {
-			final CocheDTO cocheDTO = map(coche);
+			final CocheDTO cocheDTO = map(coche); //Añadida modificación
 			cochesInStock.add(cocheDTO);
 		});
 		return cochesInStock;
