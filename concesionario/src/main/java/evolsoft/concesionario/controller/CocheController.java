@@ -49,32 +49,32 @@ public class CocheController {
 		cocheService.delete(id);
 	}
 
-	@RequestMapping(value = "/sortedByPrice", method = RequestMethod.GET)
+	@GetMapping("/sortedByPrice")
 	public List<CocheDTO> listCochesSortedByPrice(@RequestParam(required = false) Integer page,
-			@RequestParam(required = false) Integer size) {
-		return cocheService.listCochesSortedByPrice(page, size);
+	@RequestParam(required = false) Integer size) {
+	return cocheService.listCochesSortedByPrice(page, size);
 	}
 
-	@RequestMapping(value = "/sold", method = RequestMethod.GET)
+	@GetMapping("/sold")
 	public List<CocheDTO> findCarsAlreadySold() {
-		return cocheService.findCarsAlreadySold();
+	return cocheService.findCarsAlreadySold();
 	}
 	
-//	@RequestMapping(value = "/{id}/sellCar", method = RequestMethod.GET)
-//	public void sellCar(@PathVariable("id") Integer idCoche, @RequestParam(required = true) Integer idCliente,
-//			@RequestParam(required = true) Integer idVendedor) throws NotFoundExcept {
-//		cocheService.newSell(idCoche, idCliente, idVendedor);
-//	}
-//
-//	@RequestMapping(value = "/inRange", method = RequestMethod.GET)
-//	public List<CocheDTO> findCochesInPriceRange(@RequestParam(required = true) Integer min,
-//			@RequestParam(required = true) Integer max) {
-//		return (min < max) ? cocheService.findCochesInPriceRange(min, max) : cocheService.findCochesInPriceRange(max, min);
-//	}
-//
-//	@RequestMapping(value = "/stock", method = RequestMethod.GET)
-//	public List<CocheDTO> findCochesInStock() {
-//		return cocheService.findCochesInStock();
-//	}
+	@PutMapping("/sellCar")
+	public void sellCar(@RequestBody SoldCarDTO soldCarDTO) throws NotFoundExcept {
+	cocheService.newSell(soldCarDTO.getIdCoche(), soldCarDTO.getIdCliente(),
+	soldCarDTO.getIdVendedor());
+	}
+
+	@RequestMapping(value = "/inRange", method = RequestMethod.GET)
+	public List<CocheDTO> findCochesInPriceRange(@RequestParam(required = true) Integer min,
+			@RequestParam(required = true) Integer max) {
+		return (min < max) ? cocheService.findCochesInPriceRange(min, max) : cocheService.findCochesInPriceRange(max, min);
+	}
+
+	@RequestMapping(value = "/stock", method = RequestMethod.GET)
+	public List<CocheDTO> findCochesInStock() {
+		return cocheService.findCochesInStock();
+	}
 	
 }
