@@ -128,7 +128,8 @@ return cochesInStock;
 
 @Override
 public void newSell(Integer idCoche, Integer idCliente, Integer idVendedor) throws NotFoundExcept {
-	Coche soldCar = cocheDAO.findOne(idCoche);soldCar.setFechaVenta(todaysDate());
+	Coche soldCar = Optional.ofNullable(cocheDAO.findOne(idCoche)).orElseThrow(() -> new NotFoundExcept());
+	soldCar.setFechaVenta(todaysDate());
 	addClienteToSoldCar(idCliente, soldCar);
 	addVendedorToSoldCar(idVendedor, soldCar);
 	cocheDAO.save(soldCar);
