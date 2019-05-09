@@ -1,0 +1,1 @@
+Este es el entorno de trabajo del equipo RomeroRios, donde trabajan los alumnos: Alejandro Romero Navarrete y Pablo de los Ríos Gestoso, en el que almacenarán los ficheros de la clase de prácticas de la asignatura Evolución del Software.
