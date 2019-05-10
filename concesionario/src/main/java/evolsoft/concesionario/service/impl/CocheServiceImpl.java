@@ -127,6 +127,7 @@ return cochesInStock;
 }
 
 @Override
+
 public void newSell(Integer idCoche, Integer idCliente, Integer idVendedor) throws NotFoundExcept {
 	Coche soldCar = Optional.ofNullable(cocheDAO.findOne(idCoche)).orElseThrow(() -> new NotFoundExcept());
 	soldCar.setFechaVenta(todaysDate());
@@ -156,6 +157,5 @@ public void createList(List<CocheDTO> listCocheDto) {
 	for(CocheDTO cocheDTO : listCocheDto){
 		cocheDAO.save(map(cocheDTO));
 	}
-}
 
 }
