@@ -76,5 +76,10 @@ public class CocheController {
 	public List<CocheDTO> findCochesInStock() {
 		return cocheService.findCochesInStock();
 	}
+
+	@PostMapping("/insertList")
+	public void createList(@RequestBody List<CocheDTO> listCocheDto) {
+		cocheService.createList(listCocheDto);
+	}
 	
 }
